@@ -50,7 +50,7 @@ namespace MuviApp.Models
         public string Directors { get; set; }
 
         [JsonPropertyName("directorList")]
-        public List<ListDirector> DirectorList { get; set; }
+        public List<DirectorList> DirectorList { get; set; }
 
         [JsonPropertyName("writers")]
         public string Writers { get; set; }
@@ -62,7 +62,7 @@ namespace MuviApp.Models
         public string Stars { get; set; }
 
         [JsonPropertyName("starList")]
-        public List<ListStar> StarList { get; set; }
+        public List<StarList> StarList { get; set; }
 
         [JsonPropertyName("actorList")]
         public List<Actor> ActorList { get; set; }
@@ -74,13 +74,13 @@ namespace MuviApp.Models
         public string Genres { get; set; }
 
         [JsonPropertyName("genreList")]
-        public List<ListGenre> GenreList { get; set; }
+        public List<GenreList> GenreList { get; set; }
 
         [JsonPropertyName("companies")]
         public string Companies { get; set; }
 
         [JsonPropertyName("companyList")]
-        public List<ListCompany> CompanyList { get; set; }
+        public List<CompanyList> CompanyList { get; set; }
 
         [JsonPropertyName("countries")]
         public string Countries { get; set; }
