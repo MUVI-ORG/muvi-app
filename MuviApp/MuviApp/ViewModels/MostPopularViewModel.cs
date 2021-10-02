@@ -10,7 +10,7 @@ namespace MuviApp.ViewModels
 {
     public class MostPopularViewModel : BaseViewModel
     {
-        public string Text => "Most Popular Movies Page";
+        public string Text => AppResources.MostPopularMovies;
         public ICommand NavigateCommand { get; }
 
         public MostPopularViewModel(INavigationService navigationService) : base(navigationService)

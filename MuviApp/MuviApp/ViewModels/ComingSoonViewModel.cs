@@ -10,7 +10,7 @@ namespace MuviApp.ViewModels
 {
     class ComingSoonViewModel : BaseViewModel
     {
-        public string Text => "Coming Soon Page";
+        public string Text => AppResources.ComingSoonMovies;
         public ICommand NavigateCommand { get; }
 
         public ComingSoonViewModel(INavigationService navigationService) : base(navigationService)

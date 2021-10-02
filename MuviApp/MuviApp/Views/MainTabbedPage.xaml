@@ -11,7 +11,8 @@
                    Text="Muvi" 
                    TextColor="White" 
                    HorizontalOptions="Center"
-                   FontSize="Large"/>
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
         </Grid>
     </NavigationPage.TitleView>
     <TabbedPage.Children>

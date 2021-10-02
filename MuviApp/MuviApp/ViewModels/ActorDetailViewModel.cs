@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace MuviApp.ViewModels
 {
-    class ActorViewModel : BaseViewModel
+    class ActorDetailViewModel : BaseViewModel
     {
-        public string Text => "Actor Page";
+        public string Text => AppResources.ActorDetail;
         public ICommand NavigateCommand { get; }
 
-        public ActorViewModel(INavigationService navigationService) : base(navigationService)
+        public ActorDetailViewModel(INavigationService navigationService) : base(navigationService)
         {
             //NavigateCommand = new Command(OnNavigation);
         }
