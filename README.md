@@ -15,6 +15,7 @@ The IMDb-API is a web service for receiving movie, serial and cast information. 
 You can find it on: https://imdb-api.com/
 
 Endpoints used in project:
+
 ``GET MostPopularMovies
 https://imdb-api.com/en/API/MostPopularMovies/PASTE_API_KEY ``
 
@@ -61,12 +62,12 @@ Register on https://imdb-api.com/ and follow the steps below.
 ![GetApiKey1](/Screenshots/GetApiKeyStep1.PNG)
 
 #### Step 2 - Click on 'Profile'
-![GetApiKey2](/Screenshots/GetApiKeyStep2.png)![Uploading ActorDetailPage.PNG…]()
+![GetApiKey2](/Screenshots/GetApiKeyStep2.png)
 
 
 #### Step 3 - Copy your API key
-![GetApiKey3](/Screenshots/GetApiKeyStep3.png)
+![GetApiKey3](/Screenshots/GetApiKeyStep3a.png)
 
-#### Step 4 - Paste it on the code![Uploading ActorDetailPage.PNG…]()
+#### Step 4 - Paste it on the code
 
-![GetApiKey4](/Screenshots/GetApiKeyStep4.png)
+![GetApiKey4](/Screenshots/GetApiKeyStep4a.png)
