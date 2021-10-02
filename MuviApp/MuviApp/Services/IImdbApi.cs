@@ -12,19 +12,19 @@ namespace MuviApp.Services
         // Register and Get your API key here (More Info on Readme file)-> https://imdb-api.com/
 
         // Get top most popular movies
-        [Get("/en/API/MostPopularMovies/PASTE_YOUR_API_KEY_HERE")]
+        [Get(APIConfig.BaseAdress)]
         Task<HttpResponseMessage> GetMostPopularMoviesAsync();
 
         // Get top coming soon movies
-        [Get("/en/API/ComingSoon/PASTE_YOUR_API_KEY_HERE")]
+        [Get(APIConfig.ComingSoon)]
         Task<HttpResponseMessage> GetComingSoonMoviesAsync();
 
         // Get a specific movie information
-        [Get("/en/API/Title/PASTE_YOUR_API_KEY_HERE/{movieId}")]
+        [Get(APIConfig.Title)]
         Task<HttpResponseMessage> GetTitleAsync(string movieId);
 
         // Get a movie trailer
-        [Get("/en/API/Trailer/PASTE_YOUR_API_KEY_HERE/{movieId}")]
+        [Get(APIConfig.Trailer)]
         Task<HttpResponseMessage> GetTrailerAsync(string movieId);
     }
 }
