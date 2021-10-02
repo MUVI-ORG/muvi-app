@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MuviApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetailPage : ContentPage
+    public partial class ActorDetailPage : ContentPage
     {
-        public DetailPage()
+        public ActorDetailPage()
         {
             InitializeComponent();
         }
