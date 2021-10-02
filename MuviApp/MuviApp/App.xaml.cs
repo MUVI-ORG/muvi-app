@@ -18,15 +18,16 @@ namespace MuviApp
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync($"NavigationPage/MainTabbedPage?{KnownNavigationParameters.SelectedTab}=Top");
+            NavigationService.NavigateAsync($"NavigationPage/MainTabbedPage?{KnownNavigationParameters.SelectedTab}=MostPopular");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<TopPage, TopViewModel>("Top");
+            containerRegistry.RegisterForNavigation<MostPopularPage, MostPopularViewModel>("MostPopular");
             containerRegistry.RegisterForNavigation<ComingSoonPage, ComingSoonViewModel>("ComingSoon");
             containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>("Detail");
+            containerRegistry.RegisterForNavigation<ActorPage, ActorViewModel>("Actor");
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
 
         }

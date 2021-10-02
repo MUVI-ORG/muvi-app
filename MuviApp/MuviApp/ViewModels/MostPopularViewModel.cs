@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace MuviApp.ViewModels
 {
-    public class TopViewModel : BaseViewModel
+    public class MostPopularViewModel : BaseViewModel
     {
-        public string Text => "Top Movies Page";
+        public string Text => "Most Popular Movies Page";
         public ICommand NavigateCommand { get; }
 
-        public TopViewModel(INavigationService navigationService) : base(navigationService)
+        public MostPopularViewModel(INavigationService navigationService) : base(navigationService)
         {
             NavigateCommand = new Command(OnNavigation);
         }

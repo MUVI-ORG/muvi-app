@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MuviApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TopPage : ContentPage
+    public partial class MostPopularPage : ContentPage
     {
-        public TopPage()
+        public MostPopularPage()
         {
             InitializeComponent();
         }

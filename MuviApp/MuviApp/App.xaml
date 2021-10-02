@@ -4,6 +4,6 @@
              xmlns:prism="http://prismlibrary.com"
              x:Class="MuviApp.App">
     <Application.Resources>
-
+        
     </Application.Resources>
 </prism:PrismApplication>

@@ -6,5 +6,6 @@ namespace MuviApp.Models
 {
     class MovieInformationResponse
     {
+
     }
 }
