@@ -8,12 +8,12 @@ using Xamarin.Forms;
 
 namespace MuviApp.ViewModels
 {
-    class DetailViewModel : BaseViewModel
+    class MovieDetailViewModel : BaseViewModel
     {
-        public string Text => "Detail Page";
+        public string Text => AppResources.MovieDetail;
         public ICommand NavigateCommand { get; }
 
-        public DetailViewModel(INavigationService navigationService) : base(navigationService)
+        public MovieDetailViewModel(INavigationService navigationService) : base(navigationService)
         {
             NavigateCommand = new DelegateCommand(OnNavigation);
         }

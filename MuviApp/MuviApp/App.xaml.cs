@@ -27,8 +27,8 @@ namespace MuviApp
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MostPopularPage, MostPopularViewModel>(NavigationConstants.Path.MostPopular);
             containerRegistry.RegisterForNavigation<ComingSoonPage, ComingSoonViewModel>(NavigationConstants.Path.ComingSoon);
-            containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>(NavigationConstants.Path.Detail);
-            containerRegistry.RegisterForNavigation<ActorPage, ActorViewModel>(NavigationConstants.Path.Actor);
+            containerRegistry.RegisterForNavigation<MovieDetailPage, MovieDetailViewModel>(NavigationConstants.Path.Detail);
+            containerRegistry.RegisterForNavigation<ActorDetailPage, ActorDetailViewModel>(NavigationConstants.Path.Actor);
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
             containerRegistry.Register<IJsonSerializerService, JsonSerializerService>();
         }
