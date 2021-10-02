@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MuviApp.Models
 {
-    class TvShowResponse
+    public class ComingSoonResponse
     {
     }
 }

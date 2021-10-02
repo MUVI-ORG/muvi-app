@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MuviApp.Models
 {
-    class MovieInformationResponse
+    public class MovieInformationResponse
     {
 
     }

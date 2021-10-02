@@ -1,4 +1,5 @@
-﻿using MuviApp.ViewModels;
+﻿using MuviApp.Services;
+using MuviApp.ViewModels;
 using MuviApp.Views;
 using Prism;
 using Prism.Ioc;
@@ -29,7 +30,7 @@ namespace MuviApp
             containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>("Detail");
             containerRegistry.RegisterForNavigation<ActorPage, ActorViewModel>("Actor");
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
-
+            containerRegistry.Register<IJsonSerializerService, JsonSerializerService>();
         }
     }
 }
