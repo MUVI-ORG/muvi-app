@@ -1,37 +1,20 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace MuviApp.Models
 {
     public class ComingSoonResponse
     {
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
+        [JsonPropertyName("genreList")]
+        public List<GenreList> GenreList { get; set; }
 
-        [JsonPropertyName("rank")]
-        public string Rank { get; set; }
+        [JsonPropertyName("directorList")]
+        public List<DirectorList> DirectorList { get; set; }
 
-        [JsonPropertyName("rankUpDown")]
-        public string RankUpDown { get; set; }
+        [JsonPropertyName("starList")]
+        public List<StarList> StarList { get; set; }
 
-        [JsonPropertyName("title")]
-        public string Title { get; set; }
-
-        [JsonPropertyName("fullTitle")]
-        public string FullTitle { get; set; }
-
-        [JsonPropertyName("year")]
-        public string Year { get; set; }
-
-        [JsonPropertyName("image")]
-        public string Image { get; set; }
-
-        [JsonPropertyName("crew")]
-        public string Crew { get; set; }
-
-        [JsonPropertyName("imDbRating")]
-        public string ImDbRating { get; set; }
-
-        [JsonPropertyName("imDbRatingCount")]
-        public string ImDbRatingCount { get; set; }
+        [JsonPropertyName("items")]
+        public List<Movie> Movies { get; set; }
     }
 }
