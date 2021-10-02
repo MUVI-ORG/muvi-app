@@ -2,7 +2,7 @@
 
 namespace MuviApp.Models
 {
-    public class TvShow
+    public class ComingSoonResponse
     {
         [JsonPropertyName("id")]
         public string Id { get; set; }

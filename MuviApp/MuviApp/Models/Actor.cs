@@ -128,5 +128,4 @@ namespace MuviApp.Models
         [JsonPropertyName("imDbRating")]
         public string ImDbRating { get; set; }
     }
-
 }

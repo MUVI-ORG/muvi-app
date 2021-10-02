@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace MuviApp.ViewModels
 
         public ComingSoonViewModel(INavigationService navigationService) : base(navigationService)
         {
-            NavigateCommand = new Command(OnNavigation);
+            NavigateCommand = new DelegateCommand(OnNavigation);
         }
 
         private async void OnNavigation() => await NavigationService.NavigateAsync("Detail");
