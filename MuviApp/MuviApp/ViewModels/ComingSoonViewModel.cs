@@ -17,6 +17,6 @@ namespace MuviApp.ViewModels
             NavigateCommand = new Command(OnNavigation);
         }
 
-        private async void OnNavigation() => await NavigationService.NavigateAsync("Detail");
+        private async void OnNavigation() => await NavigationService.NavigateAsync(NavigationConstants.Path.Detail);
     }
 }
