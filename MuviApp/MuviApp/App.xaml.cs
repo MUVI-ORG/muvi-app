@@ -19,16 +19,16 @@ namespace MuviApp
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync($"NavigationPage/MainTabbedPage?{KnownNavigationParameters.SelectedTab}=MostPopular");
+            NavigationService.NavigateAsync($"NavigationPage/MainTabbedPage?{KnownNavigationParameters.SelectedTab}={NavigationConstants.Path.MostPopular}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MostPopularPage, MostPopularViewModel>("MostPopular");
-            containerRegistry.RegisterForNavigation<ComingSoonPage, ComingSoonViewModel>("ComingSoon");
-            containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>("Detail");
-            containerRegistry.RegisterForNavigation<ActorPage, ActorViewModel>("Actor");
+            containerRegistry.RegisterForNavigation<MostPopularPage, MostPopularViewModel>(NavigationConstants.Path.MostPopular);
+            containerRegistry.RegisterForNavigation<ComingSoonPage, ComingSoonViewModel>(NavigationConstants.Path.ComingSoon);
+            containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>(NavigationConstants.Path.Detail);
+            containerRegistry.RegisterForNavigation<ActorPage, ActorViewModel>(NavigationConstants.Path.Actor);
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
             containerRegistry.Register<IJsonSerializerService, JsonSerializerService>();
         }

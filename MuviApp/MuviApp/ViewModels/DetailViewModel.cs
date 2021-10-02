@@ -18,6 +18,6 @@ namespace MuviApp.ViewModels
             NavigateCommand = new DelegateCommand(OnNavigation);
         }
 
-        private async void OnNavigation() => await NavigationService.NavigateAsync("Actor");
+        private async void OnNavigation() => await NavigationService.NavigateAsync(NavigationConstants.Path.Actor);
     }
 }
