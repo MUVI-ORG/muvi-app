@@ -11,7 +11,7 @@ namespace MuviApp.Services
     {
         public ImdbApiService(IJsonSerializerService serializer)
         {
-            _imdbApi = RestService.For<IImdbApi>(APIConfig.ApiKey);
+            _imdbApi = RestService.For<IImdbApi>(ApiConfig.ApiKey);
             _serializer = serializer;
         }
 
