@@ -26,10 +26,10 @@ namespace MuviApp.ViewModels
             _imdbApiService = imdbApiService;
             _dialogService = dialogService;
             NavigateCommand = new DelegateCommand(OnNavigation);
-            LoadMostPopularMovie();
+            LoadMostPopularMovies();
         }
 
-        private async Task LoadMostPopularMovie()
+        private async void LoadMostPopularMovies()
         {
             if(Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -47,7 +47,7 @@ namespace MuviApp.ViewModels
             {
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    await _dialogService.DisplayAlertAsync("Alerta", "No hay conexión a Internet", "OK");
+                    await _dialogService.DisplayAlertAsync(AppResources.AlertTitle, AppResources.AlertMessage, AppResources.AlertButtonText);
                 });
             }
         }

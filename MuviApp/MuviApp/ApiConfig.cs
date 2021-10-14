@@ -8,7 +8,7 @@ namespace MuviApp
     {
         public const string BaseAdress = "https://imdb-api.com";
 
-        public const string ApiKey = "PASTE_YOUR_API_KEY_HERE";
+        //public const string ApiKey = "PASTE_YOUR_API_KEY_HERE";
 
         public const string MostPopularMovies = "/en/API/MostPopularMovies/PASTE_YOUR_API_KEY_HERE";
 
