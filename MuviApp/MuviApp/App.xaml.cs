@@ -32,6 +32,7 @@ namespace MuviApp
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
             containerRegistry.Register<IJsonSerializerService, JsonSerializerService>();
             containerRegistry.Register<IImdbApiService, ImdbApiService>();
+            
         }
     }
 }
