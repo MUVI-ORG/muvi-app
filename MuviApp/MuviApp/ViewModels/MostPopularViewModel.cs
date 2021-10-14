@@ -17,6 +17,7 @@ namespace MuviApp.ViewModels
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
+        private Movie _selectedMovie;
         public ObservableCollection<Movie> Movies { get; set; } = new ObservableCollection<Movie>();
         public string Text => AppResources.MostPopularMovies;
         public ICommand NavigateCommand { get; }
@@ -25,7 +26,7 @@ namespace MuviApp.ViewModels
         {
             _imdbApiService = imdbApiService;
             _dialogService = dialogService;
-            NavigateCommand = new DelegateCommand(OnNavigation);
+            NavigateCommand = new DelegateCommand<Movie>(OnMovieSelected);
             LoadMostPopularMovies();
         }
 
@@ -52,6 +53,33 @@ namespace MuviApp.ViewModels
             }
         }
 
-        private async void OnNavigation() => await NavigationService.NavigateAsync(NavigationConstants.Path.Detail);
+        public Movie SelectedMovie
+        {
+            get
+            {
+                return _selectedMovie;
+            }
+            set
+            {
+                _selectedMovie = value;
+
+                if (_selectedMovie != null)
+                {
+                    NavigateCommand.Execute(_selectedMovie);
+                    SelectedMovie = null;
+                }
+            }
+        }
+
+        private async void OnMovieSelected(Movie selectedMovie)
+        {
+            NavigationParameters navigationParameters = new NavigationParameters
+            {
+                { "MovieId", selectedMovie.Id },
+            };
+
+            await NavigationService.NavigateAsync(NavigationConstants.Path.Detail, navigationParameters);
+        }
+
     }
 }
