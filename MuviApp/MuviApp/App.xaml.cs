@@ -31,6 +31,7 @@ namespace MuviApp
             containerRegistry.RegisterForNavigation<ActorDetailPage, ActorDetailViewModel>(NavigationConstants.Path.Actor);
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
             containerRegistry.Register<IJsonSerializerService, JsonSerializerService>();
+            containerRegistry.Register<IImdbApiService, ImdbApiService>();
         }
     }
 }

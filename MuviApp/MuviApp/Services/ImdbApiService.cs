@@ -76,6 +76,21 @@ namespace MuviApp.Services
             return null;
         }
 
+        public async Task<ActorResponse> GetActorDetailAsync(string actorId)
+        {
+            var response = await _imdbApi.GetActorDetailAsync(actorId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var actorResponse = _serializer.Deserialize<ActorResponse>(responseString);
+
+                return actorResponse;
+            }
+
+            return null;
+        }
 
         IImdbApi _imdbApi;
         IJsonSerializerService _serializer;

@@ -70,6 +70,33 @@ namespace MuviApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string AlertButtonText {
+            get {
+                return ResourceManager.GetString("AlertButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No hay conexión a Internet.
+        /// </summary>
+        internal static string AlertMessage {
+            get {
+                return ResourceManager.GetString("AlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alerta.
+        /// </summary>
+        internal static string AlertTitle {
+            get {
+                return ResourceManager.GetString("AlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coming Soon Movies.
         /// </summary>
         internal static string ComingSoonMovies {

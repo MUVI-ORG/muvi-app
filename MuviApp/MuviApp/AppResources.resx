@@ -120,6 +120,15 @@
   <data name="ActorDetail" xml:space="preserve">
     <value>Actor Detail</value>
   </data>
+  <data name="AlertButtonText" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="AlertMessage" xml:space="preserve">
+    <value>No hay conexión a Internet</value>
+  </data>
+  <data name="AlertTitle" xml:space="preserve">
+    <value>Alerta</value>
+  </data>
   <data name="ComingSoonMovies" xml:space="preserve">
     <value>Coming Soon Movies</value>
   </data>

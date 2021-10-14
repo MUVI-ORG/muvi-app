@@ -12,5 +12,6 @@ namespace MuviApp.Services
         Task<ComingSoonResponse> GetComingSoonMoviesAsync();
         Task<MovieInformationResponse> GetTitleAsync(string movieId);
         Task<TrailerResponse> GetTrailerAsync(string movieId);
+        Task<ActorResponse> GetActorDetailAsync(string actorId);
     }
 }
