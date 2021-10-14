@@ -33,7 +33,7 @@ namespace MuviApp.Models
 
         [JsonPropertyName("imDbRatingCount")]
         public string ImDbRatingCount { get; set; }
- /*Coming Soon properties*/
+
         [JsonPropertyName("runtimeMins")]
         public string RuntimeMins { get; set; }
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MuviApp
 {
-    public static class APIConfig
+    public static class ApiConfig
     {
         public const string BaseAdress = "https://imdb-api.com";
 
