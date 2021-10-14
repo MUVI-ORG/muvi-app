@@ -6,10 +6,12 @@ using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MuviApp.ViewModels
 {
@@ -21,7 +23,6 @@ namespace MuviApp.ViewModels
         public ObservableCollection<Movie> Movies { get; set; } = new ObservableCollection<Movie>();
         public string Text => AppResources.MostPopularMovies;
         public ICommand NavigateCommand { get; }
-
         public MostPopularViewModel(INavigationService navigationService, IImdbApiService imdbApiService, IPageDialogService dialogService) : base(navigationService)
         {
             _imdbApiService = imdbApiService;
@@ -81,5 +82,31 @@ namespace MuviApp.ViewModels
             await NavigationService.NavigateAsync(NavigationConstants.Path.Detail, navigationParameters);
         }
 
+        public void SearchBarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Console.WriteLine("Changing from viewmodel");
+            var searchTerm = e.NewTextValue;
+
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = string.Empty;
+            }
+
+            searchTerm = searchTerm.ToLowerInvariant();
+
+            var filteredMovies = Movies.Where(value => value.Title.ToLowerInvariant().Contains(searchTerm)).ToList();
+
+            foreach (var value in Movies)
+            {
+                if (!filteredMovies.Contains(value))
+                {
+                    Movies.Remove(value);
+                }
+                else if (!Movies.Contains(value))
+                {
+                    Movies.Add(value);
+                }
+            }
+        }
     }
 }

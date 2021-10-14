@@ -3,8 +3,12 @@
              NavigationPage.HasBackButton="False"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModels="clr-namespace:MuviApp.ViewModels"
              x:Class="MuviApp.Views.MostPopularPage"
              Title="Most Popular">
+    <ContentPage.BindingContext>
+        <viewModels:MostPopularViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <RelativeLayout>
             <ScrollView BackgroundColor="Transparent">
@@ -20,8 +24,8 @@
                                 TextColor="GhostWhite" 
                                 PlaceholderColor="LightGray" 
                                 Placeholder="Search Movies"
-                                Margin="15"
-                               />
+                                Margin="15">
+                            </SearchBar>
                             <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="200" Margin="10,-2">
                                 <CollectionView.ItemsLayout>
                                     <LinearItemsLayout Orientation="Horizontal"/>

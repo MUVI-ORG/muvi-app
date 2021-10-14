@@ -2,6 +2,7 @@
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,17 @@ namespace MuviApp.Services
     {
         public ImdbApiService(IJsonSerializerService serializer)
         {
-            _imdbApi = RestService.For<IImdbApi>(ApiConfig.BaseAdress);
+            // This disable the SSL validation.
+            var handler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, sslErrors) => true
+            };
+            var httpClient = new HttpClient(handler)
+            {
+                BaseAddress = new Uri(ApiConfig.BaseAdress)
+            };
+
+            _imdbApi = RestService.For<IImdbApi>(httpClient);
             _serializer = serializer;
         }
 

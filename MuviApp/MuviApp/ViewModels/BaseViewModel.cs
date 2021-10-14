@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MuviApp.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         protected BaseViewModel(INavigationService navigationService)
         {
