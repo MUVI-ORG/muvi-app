@@ -26,5 +26,8 @@ namespace MuviApp.Services
         // Get a movie trailer
         [Get(ApiConfig.Trailer)]
         Task<HttpResponseMessage> GetTrailerAsync(string movieId);
+
+        [Get(ApiConfig.Actor)]
+        Task<HttpResponseMessage> GetActorDetailAsync(string actorId);
     }
 }
