@@ -16,9 +16,10 @@ namespace MuviApp.ViewModels
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
+        private Actor _selectedActor;
 
         public string MovieId { get; set; }
-        public object Trailer { get; set; }
+        public string Trailer { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
         public string Year { get; set; }
@@ -33,7 +34,7 @@ namespace MuviApp.ViewModels
         {
             _imdbApiService = imdbApiService;
             _dialogService = dialogService;
-            NavigateCommand = new DelegateCommand(OnNavigation);
+            NavigateCommand = new DelegateCommand<Actor>(OnActorSelected);
             LoadMovieDetail(MovieId);
         }
 
@@ -42,11 +43,12 @@ namespace MuviApp.ViewModels
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 var movieDetail = await _imdbApiService.GetTitleAsync(movieId);
+                var movieTrailer = await _imdbApiService.GetTrailerAsync(movieId);
 
                 if (movieDetail != null)
                 {
 
-                    Trailer = movieDetail.Trailer;
+                    Trailer = movieTrailer.LinkEmbed;
                     Name = movieDetail.Title;
                     Year = movieDetail.Year;
                     Description = movieDetail.Plot;
@@ -69,7 +71,6 @@ namespace MuviApp.ViewModels
             }
         }
 
-        private async void OnNavigation() => await NavigationService.NavigateAsync(NavigationConstants.Path.Actor);
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
@@ -79,6 +80,34 @@ namespace MuviApp.ViewModels
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             MovieId = parameters.GetValue<string>(nameof(MovieId));
+        }
+
+        public Actor SelectedActor
+        {
+            get
+            {
+                return _selectedActor;
+            }
+            set
+            {
+                _selectedActor = value;
+
+                if (_selectedActor != null)
+                {
+                    NavigateCommand.Execute(_selectedActor);
+                    SelectedActor = null;
+                }
+            }
+        }
+
+        private async void OnActorSelected(Actor selectedActor)
+        {
+            NavigationParameters navigationParameters = new NavigationParameters
+            {
+                { "ActorId", selectedActor.Id},
+            };
+
+            await NavigationService.NavigateAsync(NavigationConstants.Path.Actor, navigationParameters);
         }
     }
 }
