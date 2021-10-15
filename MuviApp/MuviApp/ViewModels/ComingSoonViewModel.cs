@@ -13,7 +13,7 @@ using Xamarin.Essentials;
 
 namespace MuviApp.ViewModels
 {
-    class ComingSoonViewModel : BaseViewModel
+    public class ComingSoonViewModel : BaseViewModel
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
