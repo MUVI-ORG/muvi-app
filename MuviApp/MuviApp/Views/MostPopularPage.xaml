@@ -9,12 +9,9 @@
     <ContentPage.Content>
         <RelativeLayout>
             <ScrollView BackgroundColor="Transparent">
-                <Frame Padding="0" BackgroundColor="#12121c" HeightRequest="-1">
+                <Frame Padding="0" BackgroundColor="#12121c" HeightRequest="1080">
                     <StackLayout BackgroundColor="Transparent" Spacing="0" Padding="10">
-
                         <StackLayout>
-                            
-                            <Label Text="MUVI" TextColor="White" FontAttributes="Bold" FontSize="30" CharacterSpacing="2" HorizontalOptions="Center"/>
                             <Frame Padding="0" Margin="15" BackgroundColor="Transparent" CornerRadius="50">
                                 <SearchBar 
                                     Text="{Binding SearchText}"
@@ -23,13 +20,11 @@
                                     CancelButtonColor="White" 
                                     TextColor="GhostWhite" 
                                     PlaceholderColor="LightGray" 
-                                    Placeholder="Search Movies">
+                                    Placeholder="Search Popular Movies">
                                 </SearchBar>
                             </Frame>
-                            
                         </StackLayout>
-
-                        <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="-1" Margin="20">
+                        <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="530" Margin="20">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
                             </CollectionView.ItemsLayout>
@@ -53,7 +48,6 @@
                     </StackLayout>
                 </Frame>
             </ScrollView>
-
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

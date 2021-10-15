@@ -4,15 +4,47 @@
              x:Class="MuviApp.Views.MovieDetailPage"
              Title="Detail">
     <ContentPage.Content>
-        <StackLayout
-            VerticalOptions="Center"
-            >
-            <Label Text="{Binding Text}"
-                TextColor="Black"
-                FontSize="Title"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"/>
-            <Button Text="View Actor Detail" Command="{Binding NavigateCommand}"/>
-        </StackLayout>
+        <RelativeLayout>
+            <ScrollView BackgroundColor="Transparent">
+                <Frame Padding="0" BackgroundColor="#12121c" HeightRequest="1080">
+                    <StackLayout BackgroundColor="Transparent" Spacing="0" Padding="10">
+                        <StackLayout>
+                            <Frame Padding="0" Margin="15" BackgroundColor="Transparent" CornerRadius="50">
+                                <SearchBar 
+                                    Text="{Binding SearchText}"
+                                    BackgroundColor="Gray"
+                                    FontFamily="OpenSans"
+                                    CancelButtonColor="White" 
+                                    TextColor="GhostWhite" 
+                                    PlaceholderColor="LightGray" 
+                                    Placeholder="Search Popular Movies">
+                                </SearchBar>
+                            </Frame>
+                        </StackLayout>
+                        <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="530" Margin="20">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.EmptyView>
+                                <Label Text="No movies found." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </CollectionView.EmptyView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Margin="5">
+                                        <Frame Padding="0" BackgroundColor="Transparent" CornerRadius="15">
+                                            <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200"/>
+                                        </Frame>
+                                        <Grid ColumnDefinitions="Auto">
+                                            <Label Grid.Column="0" Text="{Binding Rank}" TextColor="LightGreen" FontSize="Medium" FontFamily="OpenSans" FontAttributes="Bold"/>
+                                            <Label Grid.Column="1" Text="{Binding Title}" TextColor="White" FontSize="Medium" FontFamily="OpenSans"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
