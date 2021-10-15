@@ -19,6 +19,7 @@ namespace MuviApp.ViewModels
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
+        private string _searchText;
         private Movie _selectedMovie;
         private ObservableCollection<Movie> _movies = new ObservableCollection<Movie>();
         public ObservableCollection<Movie> Movies
@@ -96,6 +97,12 @@ namespace MuviApp.ViewModels
                 }
             }
         }
+        public string SearchText
+        {
+            get { return _searchText; }
+            set { if (_searchText != value) { _searchText = value; } }
+        }
+
 
         private async void OnMovieSelected(Movie selectedMovie)
         {
@@ -106,13 +113,5 @@ namespace MuviApp.ViewModels
 
             await NavigationService.NavigateAsync(NavigationConstants.Path.Detail, navigationParameters);
         }
-
-        private string _searchText;
-        public string SearchText
-        {
-            get { return _searchText; }
-            set { if (_searchText != value) { _searchText = value; } }
-        }
-
     }
 }

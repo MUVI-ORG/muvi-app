@@ -1,4 +1,4 @@
-﻿using MuviApp.Models;
+using MuviApp.Models;
 using MuviApp.Services;
 using Prism.Commands;
 using Prism.Navigation;
@@ -12,7 +12,7 @@ using Xamarin.Essentials;
 
 namespace MuviApp.ViewModels
 {
-    class ActorDetailViewModel : BaseViewModel, INavigatedAware
+    public class ActorDetailViewModel : BaseViewModel, INavigatedAware
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;

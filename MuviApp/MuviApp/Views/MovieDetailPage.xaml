@@ -4,15 +4,48 @@
              x:Class="MuviApp.Views.MovieDetailPage"
              Title="Detail">
     <ContentPage.Content>
-        <StackLayout
-            VerticalOptions="Center"
-            >
-            <Label Text="{Binding Text}"
-                TextColor="Black"
-                FontSize="Title"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"/>
-            <Button Text="View Actor Detail" Command="{Binding NavigateCommand}"/>
-        </StackLayout>
+        <RelativeLayout>
+            <ScrollView BackgroundColor="Transparent">
+                <Frame Padding="0" BackgroundColor="#12121c" HeightRequest="1080">
+                    <StackLayout BackgroundColor="Transparent" Spacing="0" Padding="0">
+                        <Frame Padding="0" Margin="0,0,0,20" BackgroundColor="Transparent" HeightRequest="250">
+                            <Image Source="https://www.somoswaka.com/wp-content/uploads/2018/08/google-fonts-logo-1080x600.jpg.webp" Aspect="AspectFill" HeightRequest="200"/>
+                        </Frame>
+                        <Grid ColumnDefinitions="*" Margin="10">
+                            <Frame Grid.Column="0" Padding="0" BackgroundColor="Transparent" CornerRadius="50">
+                                <Image Source="https://www.somoswaka.com/wp-content/uploads/2018/08/google-fonts-logo-1080x600.jpg.webp" Margin="15,0" Aspect="AspectFill" HeightRequest="200"/>
+                            </Frame>
+                            <StackLayout Grid.Column="1">
+                                <Label Text="Shang Shi" TextColor="White" FontSize="30" FontAttributes="Bold"/>
+                                <Label Text="Action, Adventure" TextColor="LightGreen" FontSize="Medium"/>
+                                <Label Text="wefewffffffffffffffffffffffffffffffffewefwefwefwefwefweeeeeeeeeeeeeefwefwefwefwefwefwefwewfwefwee" FontFamily="OpenSans" TextColor="White" FontSize="16"/>
+                            </StackLayout>
+                        </Grid>
+                        <Label Text="Cast" TextColor="White" FontSize="Title" FontAttributes="Bold" Margin="15"/>
+                        <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="530" Margin="20">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.EmptyView>
+                                <Label Text="No cast found." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </CollectionView.EmptyView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Margin="5">
+                                        <Frame Padding="0" BackgroundColor="Transparent" CornerRadius="15">
+                                            <Image Source="https://www.somoswaka.com/wp-content/uploads/2018/08/google-fonts-logo-1080x600.jpg.webp" Aspect="AspectFill" HeightRequest="50"/>
+                                        </Frame>
+                                        <Grid ColumnDefinitions="Auto">
+                                            <Label Grid.Column="0" Text="{Binding Rank}" TextColor="LightGreen" FontSize="Medium" FontFamily="OpenSans" FontAttributes="Bold"/>
+                                            <Label Grid.Column="1" Text="{Binding Title}" TextColor="White" FontSize="Medium" FontFamily="OpenSans"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
