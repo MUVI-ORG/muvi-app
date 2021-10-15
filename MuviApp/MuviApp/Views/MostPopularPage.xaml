@@ -5,6 +5,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewModels="clr-namespace:MuviApp.ViewModels"
              x:Class="MuviApp.Views.MostPopularPage"
+              xmlns:effects="clr-namespace:MuviApp.Effects"
              Title="Most Popular">
     <ContentPage.Content>
         <RelativeLayout>
@@ -21,6 +22,9 @@
                                     TextColor="GhostWhite" 
                                     PlaceholderColor="LightGray" 
                                     Placeholder="Search Popular Movies">
+                                    <SearchBar.Effects>
+                                        <effects:FocusSearchEffect/>
+                                    </SearchBar.Effects>
                                 </SearchBar>
                             </Frame>
                         </StackLayout>
