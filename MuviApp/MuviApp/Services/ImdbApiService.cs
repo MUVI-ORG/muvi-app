@@ -33,7 +33,6 @@ namespace MuviApp.Services
             if (response.IsSuccessStatusCode)
             {
                 var responseString = await response.Content.ReadAsStringAsync();
-
                 var moviesResponse = _serializer.Deserialize<MoviesResponse>(responseString);
 
                 return moviesResponse;

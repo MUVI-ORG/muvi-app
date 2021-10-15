@@ -20,9 +20,34 @@ namespace MuviApp.ViewModels
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
         private Movie _selectedMovie;
-        public ObservableCollection<Movie> Movies { get; set; } = new ObservableCollection<Movie>();
+        private ObservableCollection<Movie> _movies = new ObservableCollection<Movie>();
+        public ObservableCollection<Movie> Movies
+        {
+            get
+            {
+                ObservableCollection<Movie> theCollection = new ObservableCollection<Movie>();
+
+                if (_movies != null && _searchText != null)
+                {
+                    List<Movie> entities = (from e in _movies
+                                                 where e.Title.ToLowerInvariant().Contains(_searchText.ToLowerInvariant())
+                                                 select e).ToList<Movie>();
+                    if (entities != null && entities.Any())
+                    {
+                        theCollection = new ObservableCollection<Movie>(entities);
+                    }
+                }
+                else
+                {
+                    theCollection = _movies;
+                }
+
+                return theCollection;
+            }
+        }
         public string Text => AppResources.MostPopularMovies;
         public ICommand NavigateCommand { get; }
+        public ICommand PerformSearch { get; }
         public MostPopularViewModel(INavigationService navigationService, IImdbApiService imdbApiService, IPageDialogService dialogService) : base(navigationService)
         {
             _imdbApiService = imdbApiService;
@@ -41,7 +66,7 @@ namespace MuviApp.ViewModels
                 {
                     foreach(Movie movie in movieResponse.Movies)
                     {
-                        Movies.Add(movie);
+                        _movies.Add(movie);
                     }
                 }
             }
@@ -81,6 +106,17 @@ namespace MuviApp.ViewModels
 
             await NavigationService.NavigateAsync(NavigationConstants.Path.Detail, navigationParameters);
         }
+
+        private string _searchText;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set { if (_searchText != value) { _searchText = value; } }
+        }
+
+
+
+
 
         public void SearchBarTextChanged(object sender, TextChangedEventArgs e)
         {
