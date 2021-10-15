@@ -6,64 +6,50 @@
              xmlns:viewModels="clr-namespace:MuviApp.ViewModels"
              x:Class="MuviApp.Views.MostPopularPage"
              Title="Most Popular">
-    <ContentPage.BindingContext>
-        <viewModels:MostPopularViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <RelativeLayout>
             <ScrollView BackgroundColor="Transparent">
-                <Frame Padding="0" BackgroundColor="#171721">
-                    <StackLayout>
+                <Frame Padding="0" BackgroundColor="#12121c" HeightRequest="-1">
+                    <StackLayout BackgroundColor="Transparent" Spacing="0" Padding="10">
 
-                        <!--Header-->
-                        <StackLayout BackgroundColor="Transparent" Grid.Row="0" Spacing="0" Padding="10">
-                            <Label Grid.Column="1" Text="MUVI" TextColor="White" FontAttributes="Bold" FontSize="30" CharacterSpacing="2" HorizontalOptions="Center"/>
-                            <SearchBar 
-                                BackgroundColor="Gray" 
-                                CancelButtonColor="White" 
-                                TextColor="GhostWhite" 
-                                PlaceholderColor="LightGray" 
-                                Placeholder="Search Movies"
-                                Margin="15">
-                            </SearchBar>
-                            <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="200" Margin="10,-2">
-                                <CollectionView.ItemsLayout>
-                                    <LinearItemsLayout Orientation="Horizontal"/>
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid Padding="5" ColumnDefinitions="*">
-                                            <StackLayout Grid.Column="0">
-                                                <Frame IsClippedToBounds="True"
-                                                        HasShadow="True"
-                                                        Padding="0"
-                                                        BackgroundColor="White"
-                                                        CornerRadius="16"
-                                                       >
-                                                    <Frame.Margin>
-                                                        <OnPlatform x:TypeArguments="Thickness"
-                                                           Android="5,-5,0,0"
-                                                            iOS="18, 0, 0, 0"/>
-                                                    </Frame.Margin>
-
-                                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
-                                                        <Image  Source="{Binding Image}" Aspect="AspectFill" HeightRequest="120" WidthRequest="140" />
-                                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15" HeightRequest="20">
-                                                            <Label TextColor="#232423" FontSize = "15" Text="{Binding Title}" Margin="0,-15" FontAttributes="Bold"/>
-                                                            <Grid ColumnDefinitions="Auto">
-                                                                <Image Grid.Column="0" Source="outline_schedule_black_48.png" Aspect="AspectFit" WidthRequest="14" VerticalOptions="EndAndExpand" />
-                                                                <Label Grid.Column="1" Text="{Binding Duration}" TextColor="Gray" FontSize = "13" Margin="0,5" VerticalOptions="Center"/>
-                                                            </Grid>
-                                                        </StackLayout>
-                                                    </StackLayout>
-                                                </Frame>
-                                            </StackLayout>
-                                        </Grid>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-
+                        <StackLayout>
+                            
+                            <Label Text="MUVI" TextColor="White" FontAttributes="Bold" FontSize="30" CharacterSpacing="2" HorizontalOptions="Center"/>
+                            <Frame Padding="0" Margin="15" BackgroundColor="Transparent" CornerRadius="50">
+                                <SearchBar 
+                                    Text="{Binding SearchText}"
+                                    BackgroundColor="Gray"
+                                    FontFamily="OpenSans"
+                                    CancelButtonColor="White" 
+                                    TextColor="GhostWhite" 
+                                    PlaceholderColor="LightGray" 
+                                    Placeholder="Search Movies">
+                                </SearchBar>
+                            </Frame>
+                            
                         </StackLayout>
+
+                        <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="-1" Margin="20">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.EmptyView>
+                                <Label Text="No movies found." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </CollectionView.EmptyView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Margin="5">
+                                        <Frame Padding="0" BackgroundColor="Transparent" CornerRadius="15">
+                                            <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200"/>
+                                        </Frame>
+                                        <Grid ColumnDefinitions="Auto">
+                                            <Label Grid.Column="0" Text="{Binding Rank}" TextColor="LightGreen" FontSize="Medium" FontFamily="OpenSans" FontAttributes="Bold"/>
+                                            <Label Grid.Column="1" Text="{Binding Title}" TextColor="White" FontSize="Medium" FontFamily="OpenSans"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </StackLayout>
                 </Frame>
             </ScrollView>
