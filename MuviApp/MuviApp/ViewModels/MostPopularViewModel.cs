@@ -19,6 +19,7 @@ namespace MuviApp.ViewModels
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
+        private string _searchText;
         private Movie _selectedMovie;
         private ObservableCollection<Movie> _movies = new ObservableCollection<Movie>();
         public ObservableCollection<Movie> Movies
@@ -96,6 +97,11 @@ namespace MuviApp.ViewModels
                 }
             }
         }
+        public string SearchText
+        {
+            get { return _searchText; }
+            set { if (_searchText != value) { _searchText = value; } }
+        }
 
         private async void OnMovieSelected(Movie selectedMovie)
         {
@@ -105,44 +111,6 @@ namespace MuviApp.ViewModels
             };
 
             await NavigationService.NavigateAsync(NavigationConstants.Path.Detail, navigationParameters);
-        }
-
-        private string _searchText;
-        public string SearchText
-        {
-            get { return _searchText; }
-            set { if (_searchText != value) { _searchText = value; } }
-        }
-
-
-
-
-
-        public void SearchBarTextChanged(object sender, TextChangedEventArgs e)
-        {
-            Console.WriteLine("Changing from viewmodel");
-            var searchTerm = e.NewTextValue;
-
-            if (string.IsNullOrWhiteSpace(searchTerm))
-            {
-                searchTerm = string.Empty;
-            }
-
-            searchTerm = searchTerm.ToLowerInvariant();
-
-            var filteredMovies = Movies.Where(value => value.Title.ToLowerInvariant().Contains(searchTerm)).ToList();
-
-            foreach (var value in Movies)
-            {
-                if (!filteredMovies.Contains(value))
-                {
-                    Movies.Remove(value);
-                }
-                else if (!Movies.Contains(value))
-                {
-                    Movies.Add(value);
-                }
-            }
         }
     }
 }
