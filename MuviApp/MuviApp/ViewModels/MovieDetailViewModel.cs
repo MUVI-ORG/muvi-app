@@ -34,7 +34,7 @@ namespace MuviApp.ViewModels
             _imdbApiService = imdbApiService;
             _dialogService = dialogService;
             NavigateCommand = new DelegateCommand(OnNavigation);
-            LoadMovieDetail(MovieId);
+            //LoadMovieDetail(MovieId);
         }
 
         private async void LoadMovieDetail(string movieId)

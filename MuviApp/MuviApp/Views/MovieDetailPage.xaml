@@ -22,7 +22,7 @@
                             </StackLayout>
                         </Grid>
                         <Label Text="Cast" TextColor="White" FontSize="Title" FontAttributes="Bold" Margin="15"/>
-                        <CollectionView SelectionMode="Single" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}" HeightRequest="530" Margin="20">
+                        <CollectionView SelectionMode="Single" HeightRequest="530" Margin="20">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Horizontal" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
                             </CollectionView.ItemsLayout>
