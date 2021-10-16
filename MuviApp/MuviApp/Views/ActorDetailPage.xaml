@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuviApp.Views.ActorDetailPage"
-             Title="Actor">
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="{Binding ActorName}">
     <Grid RowDefinitions="*,2*,Auto">
         <BoxView Grid.RowSpan="3">
             <BoxView.Background>
@@ -32,10 +33,10 @@
                     </Frame>
                 </StackLayout>
             </Grid>
-            <StackLayout HorizontalOptions="Center" BindableLayout.ItemsSource="{Binding Actors}" >
-                <Label Text="{Binding Actors.name}" TextColor="White" FontSize="30" HorizontalOptions="Center"/>
-                <Label Text="Actress" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label Padding="10" Text=" Short Bio" TextColor="White" FontSize="21" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="{Binding ActorName}" TextColor="White" FontSize="30" HorizontalOptions="Center"/>
+                <Label Text="Actor" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Padding="10" Text="{Binding Biography}" TextColor="White" FontSize="21" FontAttributes="Bold" HorizontalOptions="Center"/>
                 <Label Padding="6"  Text="Description" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <Label Margin="0,0,0,0" Grid.Column="0" Grid.Row="1" Text="Full Name" TextColor="White"/>

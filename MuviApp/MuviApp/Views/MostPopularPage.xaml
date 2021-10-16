@@ -5,8 +5,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewModels="clr-namespace:MuviApp.ViewModels"
              x:Class="MuviApp.Views.MostPopularPage"
-              xmlns:effects="clr-namespace:MuviApp.Effects"
-             Title="Most Popular">
+             xmlns:effects="clr-namespace:MuviApp.Effects"
+             Title="Most Popular"
+             IconImageSource="mostPopular.png">
     <ContentPage.Content>
         <RelativeLayout>
             <ScrollView BackgroundColor="Transparent">
