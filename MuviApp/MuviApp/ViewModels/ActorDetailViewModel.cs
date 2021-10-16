@@ -31,7 +31,6 @@ namespace MuviApp.ViewModels
             _imdbApiService = imdbApiService;
             _dialogService = dialogService;
             NavigateCommand = new DelegateCommand<MovieInformationResponse>(OnMovieSelected);
-            LoadActorDetail(ActorId);
         }
 
         private async void LoadActorDetail(string actorId)
@@ -71,6 +70,7 @@ namespace MuviApp.ViewModels
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             ActorId = parameters.GetValue<string>(nameof(ActorId));
+            LoadActorDetail(ActorId);
         }
 
         public MovieInformationResponse SelectedMovie
