@@ -12,7 +12,7 @@ using Xamarin.Essentials;
 
 namespace MuviApp.ViewModels
 {
-    class MovieDetailViewModel : BaseViewModel, INavigatedAware
+    public class MovieDetailViewModel : BaseViewModel, INavigatedAware
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
@@ -43,6 +43,7 @@ namespace MuviApp.ViewModels
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+
                 var movieDetail = await _imdbApiService.GetTitleAsync(movieId);
                 var movieTrailer = await _imdbApiService.GetTrailerAsync(movieId);
 
@@ -64,6 +65,7 @@ namespace MuviApp.ViewModels
                         Cast.Add(actor);
                     }
                 }
+
             }
             else
             {
@@ -106,12 +108,12 @@ namespace MuviApp.ViewModels
 
         private async void OnActorSelected(Actor selectedActor)
         {
-            NavigationParameters navigationParameters = new NavigationParameters
-            {
-                { "ActorId", selectedActor.Id},
-            };
+            //NavigationParameters navigationParameters = new NavigationParameters
+            //{
+            //    { "ActorId", selectedActor.Id},
+            //};
 
-            await NavigationService.NavigateAsync(NavigationConstants.Path.Actor, navigationParameters);
+            //await NavigationService.NavigateAsync(NavigationConstants.Path.Actor, navigationParameters);
         }
 
         private async void OnClickTrailerButton()

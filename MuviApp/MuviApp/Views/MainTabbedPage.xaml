@@ -7,7 +7,10 @@
              xmlns:views="clr-namespace:MuviApp.Views"
              android:TabbedPage.ToolbarPlacement="Bottom"
              BackgroundColor="#1b1b2b"
-             BarTextColor="White">
+             BarTextColor="White"
+             android:TabbedPage.BarItemColor="White"
+             android:TabbedPage.BarSelectedItemColor="LightGreen"
+             >
     <NavigationPage.TitleView>
         <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" Padding="5">
             <Label Grid.Column="0" 

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuviApp.Views.MovieDetailPage"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             Title="Detail">
+             Title="{Binding Name}">
     <ContentPage.Content>
         <RelativeLayout>
             <ScrollView BackgroundColor="Transparent">
