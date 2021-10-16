@@ -12,7 +12,7 @@ using Xamarin.Essentials;
 
 namespace MuviApp.ViewModels
 {
-    public class MovieDetailViewModel : BaseViewModel, INavigatedAware
+    public class MovieDetailViewModel : BaseViewModel, INavigationAware
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;

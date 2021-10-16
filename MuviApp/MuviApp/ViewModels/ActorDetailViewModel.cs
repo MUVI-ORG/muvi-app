@@ -12,7 +12,7 @@ using Xamarin.Essentials;
 
 namespace MuviApp.ViewModels
 {
-    public class ActorDetailViewModel : BaseViewModel, INavigatedAware
+    public class ActorDetailViewModel : BaseViewModel, INavigationAware
     {
         private IImdbApiService _imdbApiService;
         private IPageDialogService _dialogService;
@@ -91,15 +91,17 @@ namespace MuviApp.ViewModels
             await NavigationService.NavigateAsync(NavigationConstants.Path.Detail, navigationParameters);
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-            throw new NotImplementedException();
-        }
-
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             ActorId = parameters.GetValue<string>(nameof(ActorId));
             LoadActorDetail(ActorId);
         }
+
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

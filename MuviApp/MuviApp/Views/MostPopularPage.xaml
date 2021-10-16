@@ -15,12 +15,8 @@
                         <StackLayout>
                             <Frame Padding="0" Margin="15" BackgroundColor="Transparent" CornerRadius="50">
                                 <SearchBar 
+                                    Style="{StaticResource SearchBar}"
                                     Text="{Binding SearchText}"
-                                    BackgroundColor="Gray"
-                                    FontFamily="OpenSans"
-                                    CancelButtonColor="White" 
-                                    TextColor="GhostWhite" 
-                                    PlaceholderColor="LightGray" 
                                     Placeholder="Search Popular Movies">
                                 </SearchBar>
                             </Frame>

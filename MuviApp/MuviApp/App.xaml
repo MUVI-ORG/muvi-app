@@ -4,6 +4,11 @@
              xmlns:prism="http://prismlibrary.com"
              x:Class="MuviApp.App">
     <Application.Resources>
-        
+        <Style x:Key="SearchBar" TargetType="SearchBar">
+            <Setter Property="BackgroundColor" Value="Gray"/>
+            <Setter Property="FontFamily" Value="OpenSans"/>
+            <Setter Property="TextColor" Value="GhostWhite"/>
+            <Setter Property="PlaceholderColor" Value="LightGray"/>
+        </Style>
     </Application.Resources>
 </prism:PrismApplication>

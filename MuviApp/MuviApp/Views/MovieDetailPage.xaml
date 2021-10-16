@@ -11,9 +11,9 @@
                     <StackLayout BackgroundColor="Transparent" Spacing="0" Padding="0">
                         <Frame BackgroundColor="Transparent" HeightRequest="300" Margin="60,0" CornerRadius="80">
                             <RelativeLayout>
-                                <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="300" WidthRequest="200"/>
+                                <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="300" WidthRequest="250"/>
                                 <Button Text="Ver Trailer"  
-                                        TranslationX="50" 
+                                        TranslationX="75" 
                                         TranslationY="240" 
                                         BackgroundColor="Black" 
                                         FontFamily="OpenSans" 

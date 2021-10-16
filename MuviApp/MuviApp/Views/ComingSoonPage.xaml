@@ -12,12 +12,8 @@
                         <StackLayout>
                             <Frame Padding="0" Margin="15" BackgroundColor="Transparent" CornerRadius="50">
                                 <SearchBar 
+                                    Style="{StaticResource SearchBar}"
                                     Text="{Binding SearchText}"
-                                    BackgroundColor="Gray"
-                                    FontFamily="OpenSans"
-                                    CancelButtonColor="White" 
-                                    TextColor="GhostWhite" 
-                                    PlaceholderColor="LightGray" 
                                     Placeholder="Search Upcoming Movies">
                                 </SearchBar>
                             </Frame>
@@ -27,7 +23,7 @@
                                 <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
                             </CollectionView.ItemsLayout>
                             <CollectionView.EmptyView>
-                                <Label Text="No movies found." FontFamily="OpenSans" FontSize="Medium" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="No movies found." FontFamily="OpenSans" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </CollectionView.EmptyView>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>

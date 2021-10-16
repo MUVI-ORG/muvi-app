@@ -19,20 +19,6 @@
             <Image Source="back.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="25"/>
         </Grid>
         <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,-150,0,0">
-            <Grid HeightRequest="210" WidthRequest="210" HorizontalOptions="Center">
-                <StackLayout Padding="30">
-                    <Frame CornerRadius="100" 
-           HeightRequest="200"
-           WidthRequest="500"
-           HorizontalOptions="Center"
-           Padding="0"
-           IsClippedToBounds="True">
-                        <Image Source="image.jpg"
-           HorizontalOptions="Center"
-           VerticalOptions="Center" />
-                    </Frame>
-                </StackLayout>
-            </Grid>
             <StackLayout HorizontalOptions="Center">
                 <Label Text="{Binding ActorName}" TextColor="White" FontSize="30" HorizontalOptions="Center"/>
                 <Label Text="Actor" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
@@ -47,19 +33,14 @@
             <Label Text="Related Movies &amp; Series" HorizontalOptions="StartAndExpand" FontAttributes="Bold" TextColor="White" FontSize="20"/>
             <ScrollView  Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout Orientation="Horizontal" Spacing="30">
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="15">
-                                <Rectangle Fill="#A5A5A5" VerticalOptions="Center" WidthRequest="87" HeightRequest="40"/>
-                                <Image Source="{Binding Title}" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <StackLayout Grid.Column="1" Spacing="5" WidthRequest="115">
-                                    <Label Text="Emma Watson" TextColor="White" FontSize="12" FontAttributes="Bold"/>
-                                    <Label Text="Actress/Producer" TextColor="White" FontSize="10"/>
-                                </StackLayout>
-                            </Grid>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
                    
+                     <Image Source="{Binding Title}" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <StackLayout Grid.Column="1" Spacing="5" WidthRequest="115">
+                        <Label Text="Emma Watson" TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                        <Label Text="Actress/Producer" TextColor="White" FontSize="10"/>
+                    </StackLayout>
+
+
                 </StackLayout>
             </ScrollView>
         </StackLayout>

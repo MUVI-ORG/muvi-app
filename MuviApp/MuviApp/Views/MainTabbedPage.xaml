@@ -16,10 +16,9 @@
             <Label Grid.Column="0" 
                    Text="MUVI"
                    CharacterSpacing="2"
-                   TextColor="White" 
+                   TextColor="LightGreen" 
                    HorizontalOptions="Center"
                    FontSize="Title"
-                   FontFamily="OpenSans"
                    FontAttributes="Bold"/>
         </Grid>
     </NavigationPage.TitleView>
