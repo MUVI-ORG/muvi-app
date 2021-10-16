@@ -22,6 +22,7 @@ namespace MuviApp.ViewModels
         public string Role { get; set; }
         public string Biography { get; set; }
         public string ActorImage { get; set; }
+        public string ActorBirthDate { get; set; }
         public ObservableCollection<MovieInformationResponse> Movies { get; set; } = new ObservableCollection<MovieInformationResponse>();
         public string Text => AppResources.ActorDetail;
         public ICommand NavigateCommand { get; }
@@ -46,6 +47,8 @@ namespace MuviApp.ViewModels
                     Biography = actorDetail.Summary;
                     ActorImage = actorDetail.Image;
                     Role = actorDetail.Role;
+                    ActorBirthDate = actorDetail.BirthDate;
+                    
                   
 
                     foreach (CastMovy castMovy in actorDetail.CastMovies)
