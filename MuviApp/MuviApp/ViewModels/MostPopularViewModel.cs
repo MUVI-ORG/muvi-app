@@ -48,7 +48,7 @@ namespace MuviApp.ViewModels
         }
         public string Text => AppResources.MostPopularMovies;
         public ICommand NavigateCommand { get; }
-        public ICommand PerformSearch { get; }
+        
         public MostPopularViewModel(INavigationService navigationService, IImdbApiService imdbApiService, IPageDialogService dialogService) : base(navigationService)
         {
             _imdbApiService = imdbApiService;
@@ -102,6 +102,7 @@ namespace MuviApp.ViewModels
             get { return _searchText; }
             set { if (_searchText != value) { _searchText = value; } }
         }
+
 
         private async void OnMovieSelected(Movie selectedMovie)
         {
