@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuviApp.Android", "MuviApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuviApp.iOS", "MuviApp\MuviApp.iOS\MuviApp.iOS.csproj", "{25C997E3-664E-41A3-9049-8A6A813F8235}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuviApp", "MuviApp\MuviApp\MuviApp.csproj", "{3C536769-A430-47BB-8DDF-CA134316B5F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuviApp", "MuviApp\MuviApp\MuviApp.csproj", "{3C536769-A430-47BB-8DDF-CA134316B5F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

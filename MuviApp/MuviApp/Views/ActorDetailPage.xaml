@@ -5,44 +5,52 @@
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="{Binding ActorName}">
     <Grid RowDefinitions="*,2*,Auto">
-        <BoxView Grid.RowSpan="3">
-            <BoxView.Background>
-                <LinearGradientBrush>
-                    <GradientStopCollection>
-                        <GradientStop Color="#171721" Offset="0"/>
-                        <GradientStop Color="#171724" Offset="1"/>
-                    </GradientStopCollection>
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
-        <Grid>
-            <Image Source="back.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="25"/>
-        </Grid>
+        <controls:CircleImage Source="{Binding Image}" Aspect="AspectFill">
+            <controls:CircleImage.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android, iOS">100</On>
+                </OnPlatform>
+            </controls:CircleImage.WidthRequest>
+            <controls:CircleImage.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android, iOS">100</On>
+                </OnPlatform>
+            </controls:CircleImage.HeightRequest>
+        </controls:CircleImage>
         <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,-150,0,0">
             <StackLayout HorizontalOptions="Center">
                 <Label Text="{Binding ActorName}" TextColor="White" FontSize="30" HorizontalOptions="Center"/>
                 <Label Text="Actor" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
                 <Label Padding="10" Text="{Binding Biography}" TextColor="White" FontSize="21" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label Padding="6"  Text="Description" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <Label Margin="0,0,0,0" Grid.Column="0" Grid.Row="1" Text="Full Name" TextColor="White"/>
-            <Label Grid.Column="0" Grid.Row="2" Text="Born" TextColor="White"/>
-            <Label Grid.Column="0" Grid.Row="3" Text="Age" TextColor="White"/>
-        </StackLayout>
-        <StackLayout Grid.Row="2" Padding="62" Margin="-30,0,0,50" >
-            <Label Text="Related Movies &amp; Series" HorizontalOptions="StartAndExpand" FontAttributes="Bold" TextColor="White" FontSize="20"/>
-            <ScrollView  Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                <StackLayout Orientation="Horizontal" Spacing="30">
-                   
-                     <Image Source="{Binding Title}" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <StackLayout Grid.Column="1" Spacing="5" WidthRequest="115">
-                        <Label Text="Emma Watson" TextColor="White" FontSize="12" FontAttributes="Bold"/>
-                        <Label Text="Actress/Producer" TextColor="White" FontSize="10"/>
-                    </StackLayout>
-
-
-                </StackLayout>
-            </ScrollView>
+            <CollectionView SelectionMode="Single" SelectedItem="{Binding SelectedMovie}" ItemsSource="{Binding Movies}" HeightRequest="530" Margin="20,6">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="No Related Movies found." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="5">
+                            <controls:CircleImage Source="{Binding Image}" Aspect="AspectFill">
+                                <controls:CircleImage.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, iOS">90</On>
+                                    </OnPlatform>
+                                </controls:CircleImage.WidthRequest>
+                                <controls:CircleImage.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, iOS">90</On>
+                                    </OnPlatform>
+                                </controls:CircleImage.HeightRequest>
+                            </controls:CircleImage>
+                            <!--<Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="50" WidthRequest="5"/>-->
+                            <Label Text="{Binding Title}" TextColor="White" FontSize="15" FontFamily="OpenSans" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </Grid>
 </ContentPage>

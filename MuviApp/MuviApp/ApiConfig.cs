@@ -18,7 +18,5 @@ namespace MuviApp
 
         public const string Actor = "/en/API/Name/PASTE_YOUR_API_KEY_HERE/{actorId}";
 
-
-
     }
 }
