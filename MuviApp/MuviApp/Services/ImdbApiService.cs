@@ -2,6 +2,7 @@
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,17 @@ namespace MuviApp.Services
     {
         public ImdbApiService(IJsonSerializerService serializer)
         {
-            _imdbApi = RestService.For<IImdbApi>(ApiConfig.ApiKey);
+            // This disable the SSL validation.
+            var handler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, sslErrors) => true
+            };
+            var httpClient = new HttpClient(handler)
+            {
+                BaseAddress = new Uri(ApiConfig.BaseAdress)
+            };
+
+            _imdbApi = RestService.For<IImdbApi>(httpClient);
             _serializer = serializer;
         }
 
@@ -22,7 +33,6 @@ namespace MuviApp.Services
             if (response.IsSuccessStatusCode)
             {
                 var responseString = await response.Content.ReadAsStringAsync();
-
                 var moviesResponse = _serializer.Deserialize<MoviesResponse>(responseString);
 
                 return moviesResponse;
@@ -76,6 +86,21 @@ namespace MuviApp.Services
             return null;
         }
 
+        public async Task<ActorResponse> GetActorDetailAsync(string actorId)
+        {
+            var response = await _imdbApi.GetActorDetailAsync(actorId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var actorResponse = _serializer.Deserialize<ActorResponse>(responseString);
+
+                return actorResponse;
+            }
+
+            return null;
+        }
 
         IImdbApi _imdbApi;
         IJsonSerializerService _serializer;

@@ -29,8 +29,11 @@ namespace MuviApp
             containerRegistry.RegisterForNavigation<ComingSoonPage, ComingSoonViewModel>(NavigationConstants.Path.ComingSoon);
             containerRegistry.RegisterForNavigation<MovieDetailPage, MovieDetailViewModel>(NavigationConstants.Path.Detail);
             containerRegistry.RegisterForNavigation<ActorDetailPage, ActorDetailViewModel>(NavigationConstants.Path.Actor);
+            //containerRegistry.RegisterForNavigation<ActorPage, ActorViewModel>(NavigationConstants.Path.Actor);
             containerRegistry.RegisterForNavigation<MainTabbedPage>();
             containerRegistry.Register<IJsonSerializerService, JsonSerializerService>();
+            containerRegistry.Register<IImdbApiService, ImdbApiService>();
+            
         }
     }
 }

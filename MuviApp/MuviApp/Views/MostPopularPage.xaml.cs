@@ -16,5 +16,10 @@ namespace MuviApp.Views
         {
             InitializeComponent();
         }
+
+        private void SearchBarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Console.WriteLine("Changing");
+        }
     }
 }
