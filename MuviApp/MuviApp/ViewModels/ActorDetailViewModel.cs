@@ -1,4 +1,4 @@
-using MuviApp.Models;
+﻿using MuviApp.Models;
 using MuviApp.Services;
 using Prism.Commands;
 using Prism.Navigation;
