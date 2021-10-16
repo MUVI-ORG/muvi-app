@@ -8,15 +8,15 @@ namespace MuviApp
     {
         public const string BaseAdress = "https://imdb-api.com";
 
-        public const string MostPopularMovies = "/en/API/MostPopularMovies/k_w1pp3vl1";
+        public const string MostPopularMovies = "/en/API/MostPopularMovies/PASTE_YOUR_API_KEY_HERE";
 
-        public const string ComingSoon = "/en/API/ComingSoon/k_w1pp3vl1";
+        public const string ComingSoon = "/en/API/ComingSoon/PASTE_YOUR_API_KEY_HERE";
 
-        public const string Title = "/en/API/Title/k_w1pp3vl1/{movieId}";
+        public const string Title = "/en/API/Title/PASTE_YOUR_API_KEY_HERE/{movieId}";
 
-        public const string Trailer = "/en/API/Trailer/k_w1pp3vl1/{movieId}";
+        public const string Trailer = "/en/API/Trailer/PASTE_YOUR_API_KEY_HERE/{movieId}";
 
-        public const string Actor = "/en/API/Name/k_w1pp3vl1/{actorId}";
+        public const string Actor = "/en/API/Name/PASTE_YOUR_API_KEY_HERE/{actorId}";
 
 
 
