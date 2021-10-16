@@ -33,7 +33,7 @@
                                 <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
                             </CollectionView.ItemsLayout>
                             <CollectionView.EmptyView>
-                                <Label Text="No movies found." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="No movies found." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="OpenSans"/>
                             </CollectionView.EmptyView>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
