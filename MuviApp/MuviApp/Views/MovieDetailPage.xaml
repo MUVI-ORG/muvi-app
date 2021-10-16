@@ -2,27 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuviApp.Views.MovieDetailPage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="Detail">
     <ContentPage.Content>
         <RelativeLayout>
             <ScrollView BackgroundColor="Transparent">
                 <Frame Padding="0" BackgroundColor="#12121c" HeightRequest="1080">
                     <StackLayout BackgroundColor="Transparent" Spacing="0" Padding="0">
-                        <Frame Padding="0" Margin="0,0,0,20" BackgroundColor="Transparent" HeightRequest="250">
-                            <Image Source="https://www.somoswaka.com/wp-content/uploads/2018/08/google-fonts-logo-1080x600.jpg.webp" Aspect="AspectFill" HeightRequest="200"/>
-                        </Frame>
-                        <Grid ColumnDefinitions="*" Margin="10">
-                            <Frame Grid.Column="0" Padding="0" BackgroundColor="Transparent" CornerRadius="50">
-                                <Image Source="https://www.somoswaka.com/wp-content/uploads/2018/08/google-fonts-logo-1080x600.jpg.webp" Margin="15,0" Aspect="AspectFill" HeightRequest="200"/>
-                            </Frame>
-                            <StackLayout Grid.Column="1">
-                                <Label Text="Shang Shi" TextColor="White" FontSize="30" FontAttributes="Bold"/>
-                                <Label Text="Action, Adventure" TextColor="LightGreen" FontSize="Medium"/>
-                                <Label Text="wefewffffffffffffffffffffffffffffffffewefwefwefwefwefweeeeeeeeeeeeeefwefwefwefwefwefwefwewfwefwee" FontFamily="OpenSans" TextColor="White" FontSize="16"/>
-                            </StackLayout>
-                        </Grid>
-                        <Label Text="Cast" TextColor="White" FontSize="Title" FontAttributes="Bold" Margin="15"/>
-                        <CollectionView SelectionMode="Single" HeightRequest="530" Margin="20">
+                        <Frame BackgroundColor="Transparent" HeightRequest="300" Margin="60,0" CornerRadius="80">
+                            <RelativeLayout>
+                                <Image Source="{Binding Image}" Aspect="Fill" HeightRequest="300" WidthRequest="200"/>
+                                <Button Text="Ver Trailer"  
+                                        TranslationX="50" 
+                                        TranslationY="240" 
+                                        BackgroundColor="Black" 
+                                        FontFamily="OpenSans" 
+                                        TextColor="White" 
+                                        Opacity="0.8" 
+                                        CornerRadius="50"
+                                        Command="{Binding ShowTrailerCommand}"/>
+                             </RelativeLayout>
+                        </Frame> 
+                        <StackLayout Grid.Column="1" Margin="20,0,0,20">
+                            <Label Text="{Binding Name}" TextColor="White" FontSize="25" FontAttributes="Bold"/>
+                            <Label Text="{Binding Genres}" TextColor="LightGreen" FontSize="Medium" FontFamily="OpenSans"/>
+                            <Label Text="{Binding Description}" FontFamily="OpenSans" TextColor="White" FontSize="16" LineBreakMode="TailTruncation" MaxLines="4"/>
+                        </StackLayout>
+                        <Label Text="Cast" TextColor="White" FontSize="Title" FontAttributes="Bold" Margin="20,0,0,0"/>
+                        <CollectionView SelectionMode="Single" SelectedItem="{Binding SelectedActor}" ItemsSource="{Binding Cast}" HeightRequest="530" Margin="20,6">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Horizontal" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
                             </CollectionView.ItemsLayout>
@@ -32,13 +39,21 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Margin="5">
-                                        <Frame Padding="0" BackgroundColor="Transparent" CornerRadius="15">
-                                            <Image Source="https://www.somoswaka.com/wp-content/uploads/2018/08/google-fonts-logo-1080x600.jpg.webp" Aspect="AspectFill" HeightRequest="50"/>
-                                        </Frame>
-                                        <Grid ColumnDefinitions="Auto">
-                                            <Label Grid.Column="0" Text="{Binding Rank}" TextColor="LightGreen" FontSize="Medium" FontFamily="OpenSans" FontAttributes="Bold"/>
-                                            <Label Grid.Column="1" Text="{Binding Title}" TextColor="White" FontSize="Medium" FontFamily="OpenSans"/>
-                                        </Grid>
+                                        <controls:CircleImage Source="{Binding Image}" Aspect="AspectFill">
+                                                <controls:CircleImage.WidthRequest>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="Android, iOS">90</On>
+                                                    </OnPlatform>
+                                                </controls:CircleImage.WidthRequest>
+                                                <controls:CircleImage.HeightRequest>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="Android, iOS">90</On>
+                                                    </OnPlatform>
+                                                </controls:CircleImage.HeightRequest>
+                                            </controls:CircleImage>
+                                            <!--<Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="50" WidthRequest="5"/>-->
+                                        <Label Text="{Binding Name}" TextColor="White" FontSize="15" FontFamily="OpenSans" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding AsCharacter}" TextColor="LightGreen" FontSize="15" FontFamily="OpenSans" HorizontalTextAlignment="Center" MaxLines="1"/>
                                     </StackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>

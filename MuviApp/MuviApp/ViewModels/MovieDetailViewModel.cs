@@ -26,16 +26,17 @@ namespace MuviApp.ViewModels
         public string Genres { get; set; }
         public string Time { get; set; }
         public string Rating { get; set; }
+        public string Image { get; set; }
         public ObservableCollection<Actor> Cast { get; set; } = new ObservableCollection<Actor>();
         public string Text => AppResources.MovieDetail;
         public ICommand NavigateCommand { get; }
-
+        public ICommand ShowTrailerCommand { get; }
         public MovieDetailViewModel(INavigationService navigationService, IImdbApiService imdbApiService, IPageDialogService dialogService) : base(navigationService)
         {
             _imdbApiService = imdbApiService;
             _dialogService = dialogService;
             NavigateCommand = new DelegateCommand<Actor>(OnActorSelected);
-            LoadMovieDetail(MovieId);
+            ShowTrailerCommand = new DelegateCommand(OnClickTrailerButton);
         }
 
         private async void LoadMovieDetail(string movieId)
@@ -54,7 +55,9 @@ namespace MuviApp.ViewModels
                     Description = movieDetail.Plot;
                     Genres = movieDetail.Genres;
                     Time = movieDetail.RuntimeStr;
-                    Rating = movieDetail.ImDbRating;
+                    Rating = movieDetail.ImDbRating ?? "N/A";
+                    Image = movieDetail.Image;
+
 
                     foreach (var actor in movieDetail.ActorList)
                     {
@@ -80,6 +83,7 @@ namespace MuviApp.ViewModels
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             MovieId = parameters.GetValue<string>(nameof(MovieId));
+            LoadMovieDetail(MovieId);
         }
 
         public Actor SelectedActor
@@ -108,6 +112,18 @@ namespace MuviApp.ViewModels
             };
 
             await NavigationService.NavigateAsync(NavigationConstants.Path.Actor, navigationParameters);
+        }
+
+        private async void OnClickTrailerButton()
+        {
+            if(Trailer != null)
+            {
+                await Browser.OpenAsync(Trailer, BrowserLaunchMode.SystemPreferred);
+            }
+            else
+            {
+                await _dialogService.DisplayAlertAsync(AppResources.OopsAlert, AppResources.AlertTrailerMessage, AppResources.AlertButtonText);
+            }
         }
     }
 }

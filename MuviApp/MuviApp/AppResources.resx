@@ -129,6 +129,9 @@
   <data name="AlertTitle" xml:space="preserve">
     <value>Alerta</value>
   </data>
+  <data name="AlertTrailerMessage" xml:space="preserve">
+    <value>Trailer no disponible</value>
+  </data>
   <data name="ComingSoonMovies" xml:space="preserve">
     <value>Coming Soon Movies</value>
   </data>
@@ -137,5 +140,8 @@
   </data>
   <data name="MovieDetail" xml:space="preserve">
     <value>Movie Detail</value>
+  </data>
+  <data name="OopsAlert" xml:space="preserve">
+    <value>Oops!</value>
   </data>
 </root>

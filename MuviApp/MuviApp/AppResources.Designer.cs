@@ -97,6 +97,15 @@ namespace MuviApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trailer no disponible.
+        /// </summary>
+        internal static string AlertTrailerMessage {
+            get {
+                return ResourceManager.GetString("AlertTrailerMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coming Soon Movies.
         /// </summary>
         internal static string ComingSoonMovies {
@@ -120,6 +129,15 @@ namespace MuviApp {
         internal static string MovieDetail {
             get {
                 return ResourceManager.GetString("MovieDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oops!.
+        /// </summary>
+        internal static string OopsAlert {
+            get {
+                return ResourceManager.GetString("OopsAlert", resourceCulture);
             }
         }
     }
