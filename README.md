@@ -6,7 +6,9 @@ Mobile application that allows users to consult the most popular movies and new 
 - List top 100 most popular movies based on IMDB.
 - List top 100 coming soon movies based on IMDB.
 - Search and view movie details.
-- View actors details.
+
+## App Demo
+<img src="/Gifs/MuviAppDemo.gif" width="200" height="500"/>
 
 ## About the IMDB Api:
 
@@ -28,31 +30,20 @@ https://imdb-api.com/en/API/Title/PASTE_API_KEY/{movieId} ``
 ``GET Trailer
 https://imdb-api.com/en/API/Trailer/PASTE_API_KEY/{movieId} ``
 
-## Technologies:
+## Technologies & Libraries:
 - Xamarin Forms
 - Prism
 - Refit
 - Fody
+- PropertyChanged.Fody
+- GlideX
+- ImageCircle.Forms
 
-### App Navigation Flows
- 
-- Flow 1: Most Popular Movies Page > Movie Detail Page > Actor Detail Page
-- Flow 2: Coming Soon Movies Page > Movie Detail Page > Actor Detail Page
+### Prototype Mockup on Figma (Recommended open it with Firefox or Safari)
+https://www.figma.com/file/Dua28cgYD70c3YIuDETEfk/figma-file?node-id=0%3A1
 
-### Screenshots of the app
-
-#### Most Popular Movies Page
-![MostPopularMoviesPage](https://user-images.githubusercontent.com/47201459/135704165-4735445a-50b1-4e93-913d-65d33310ad49.PNG)
-
-#### Coming Soon Movies Page
-![ComingSoonMoviesPage](https://user-images.githubusercontent.com/47201459/135704186-e5a3234e-61aa-4a02-b5a6-95e691fc656e.PNG)
-
-#### Movie Detail Page
-![MovieDetailPage](https://user-images.githubusercontent.com/47201459/135704197-9add480d-d1b8-4ee6-9c5d-6648680dd3fb.PNG)
-
-#### Actor Detail Page
-![ActorDetailPage](https://user-images.githubusercontent.com/47201459/135704212-0844fdf7-bfe8-45d6-a937-423e179294c5.PNG)
-
+### Team Work Distribution on Trello
+https://trello.com/b/s1cuKhhK/muvi
 
 ## How to get the API Key
 
@@ -71,3 +62,8 @@ Register on https://imdb-api.com/ and follow the steps below.
 #### Step 4 - Paste it on the code
 
 ![GetApiKey4](/Screenshots/GetApiKeyStep4a.png)
+
+## Developers
+- Ana Paredes (1086701)
+- Adriel Rosario (1087472)
+- Alexis Novas (1086316)
