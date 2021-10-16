@@ -8,7 +8,7 @@ Mobile application that allows users to consult the most popular movies and new 
 - Search and view movie details.
 
 ## App Demo
-<img src="/Gifs/MuviAppDemo.gif" width="200" height="500"/>
+<img src="/Gifs/MuviAppDemo.gif" width="300" height="500"/>
 
 ## About the IMDB Api:
 
